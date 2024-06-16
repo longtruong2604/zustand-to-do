@@ -1,25 +1,15 @@
 import React from 'react'
+
 import { cn } from '@/lib/utils'
 
-export default function Task({
-  title,
-  description,
-  status
-}: {
-  title: string
-  description: string
-  status: string
-}) {
+export default function Task({ title, description, status }: { title: string; description: string; status: string }) {
   return (
     <div
-      className={cn(
-        'flex cursor-move items-start justify-between rounded-lg bg-white px-3 py-2 text-gray-900',
-        {
-          'border-2 border-sky-500': status === 'TODO',
-          'border-2 border-amber-500': status === 'IN_PROGRESS',
-          'border-2 border-emerald-500': status === 'DONE'
-        }
-      )}
+      className={cn('flex cursor-move items-start justify-between rounded-lg bg-white px-3 py-2 text-gray-900', {
+        'border-2 border-sky-500': status === 'TODO',
+        'border-2 border-amber-500': status === 'IN_PROGRESS',
+        'border-2 border-emerald-500': status === 'DONE',
+      })}
     >
       <div>
         <h3 className='font-medium text-gray-700'>{title}</h3>
