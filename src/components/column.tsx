@@ -6,10 +6,7 @@ import { Status, useTaskStore } from '@/lib/store'
 import Task from './task'
 
 export default function Column({ title, status }: Readonly<{ title: string; status: Status }>) {
-  const tasks = useTaskStore((state) => state.tasks)
-  const updateTask = useTaskStore((state) => state.updateTask)
-  const draggedTask = useTaskStore((state) => state.draggedTask)
-  const dragTask = useTaskStore((state) => state.dragTask)
+  const { tasks, updateTask, draggedTask, dragTask } = useTaskStore()
   const filteredTasks = useMemo(() => tasks.filter((task) => task.status === status), [tasks, status])
   const handleDrop = () => {
     if (!draggedTask) return
@@ -17,6 +14,7 @@ export default function Column({ title, status }: Readonly<{ title: string; stat
     dragTask(null)
     console.log(tasks)
   }
+
   return (
     <section className='h-[600px] flex-1'>
       <h2 className='ml-1 font-serif text-2xl font-semibold'>{title}</h2>

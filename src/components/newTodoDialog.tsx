@@ -17,7 +17,7 @@ import { Label } from '@/components/ui/label'
 import { useTaskStore } from '@/lib/store'
 
 export default function NewTodoDialog() {
-  const addTask = useTaskStore((state) => state.addTask)
+  const { addTask } = useTaskStore()
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     console.log(e)
